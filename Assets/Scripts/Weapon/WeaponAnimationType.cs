@@ -11,7 +11,8 @@
     HandWeaponHit,
     HandWeaponRun,
     HandWeaponIdle,
-    HandWeaponShow
+    HandWeaponShow,
+    
 }
 
 public enum CharacterAnimationType

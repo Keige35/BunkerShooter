@@ -13,7 +13,8 @@ public class RunHandWeaponState : State
 
     public override void OnStateEnter()
     {
-        _weaponAnimationController.SetBool(WeaponAnimationType.HandWeaponRun, true);
+         _weaponAnimationController.SetBool(WeaponAnimationType.HandWeaponRun, true);
+       
     }
 
     public override void OnStateExit()
