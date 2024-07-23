@@ -34,11 +34,13 @@ public class HandWeaponStateMachine : MonoBehaviour
         var runState = new RunHandWeaponState(animatorController);
 
 
+        /* showState.AddTransition(new StateTransition(idleState,
+             new AnimationTransitionCondition(animatorController.Animator, WeaponAnimationType.HandWeaponShow.ToString())));*/
         showState.AddTransition(new StateTransition(idleState,
-            new AnimationTransitionCondition(animatorController.Animator, WeaponAnimationType.HandWeaponShow.ToString())));
+             new TemporaryCondition(1f)));
 
         idleState.AddTransition(new StateTransition(runState,
-            new FuncCondition(() => Input.GetKey(KeyCode.LeftShift))));
+            new FuncCondition(() => Input.GetKey(KeyCode.LeftShift) == true)));
 
         runState.AddTransition(new StateTransition(idleState,
             new FuncCondition(() => Input.GetKey(KeyCode.LeftShift) == false)));
