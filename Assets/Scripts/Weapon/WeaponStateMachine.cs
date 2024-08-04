@@ -6,13 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(Animator), typeof(ShotSystem), typeof(Reloader))]
 public class WeaponStateMachine : MonoBehaviour
 {
-    [SerializeField] private string gradadeStat;
-    [SerializeField] private Transform granadeSpawnPosition;
-    [SerializeField] private Granade prefab;
+    //[SerializeField] private string gradadeStat;
+   // [SerializeField] private Transform granadeSpawnPosition;
+   // [SerializeField] private Granade prefab;
     [SerializeField] private float fireRate;
     private StateMachine _stateMachine;
     private StateMachine _shotMachine;
-    private StateMachine _granadeMachine;
+  //  private StateMachine _granadeMachine;
 
     public float FireRate => fireRate;
 
@@ -23,12 +23,12 @@ public class WeaponStateMachine : MonoBehaviour
     private IdleWeaponState idleState;
     private ReloadWeaponState reloadWeaponState;
 
-    private IPool<Granade> granadePool;
+   // private IPool<Granade> granadePool;
 
     private void Awake()
     {
-        var factory = new FactoryMonoObject<Granade>(prefab.gameObject, transform);
-        granadePool = new Pool<Granade>(factory, 1);
+       // var factory = new FactoryMonoObject<Granade>(prefab.gameObject, transform);
+      //  granadePool = new Pool<Granade>(factory, 1);
         reloader = GetComponent<Reloader>();
         InitializeStateMachine();
     }
@@ -37,8 +37,8 @@ public class WeaponStateMachine : MonoBehaviour
     {
         _stateMachine.OnUpdate();
         _shotMachine.OnUpdate();
-        _granadeMachine.OnUpdate();
-        gradadeStat = _granadeMachine.CurrentState.ToString();
+       // _granadeMachine.OnUpdate();
+       // gradadeStat = _granadeMachine.CurrentState.ToString();
         if (Input.GetKeyDown(KeyCode.R) && reloader.IsMagFull() == false)
         {
             StartReload();
@@ -49,16 +49,16 @@ public class WeaponStateMachine : MonoBehaviour
     {
         _stateMachine.OnFixedUpdate();
         _shotMachine.OnFixedUpdate();
-        _granadeMachine.OnFixedUpdate();
+       // _granadeMachine.OnFixedUpdate();
     }
 
-    public void SpawnGrenade()
+    /*public void SpawnGrenade()
     {
         var grenada = granadePool.Pull();
         grenada.transform.position = granadeSpawnPosition.position;
         grenada.transform.rotation = granadeSpawnPosition.rotation;
         grenada.AddVelocity();
-    }
+    }*/
 
     private bool CheckReadyShot()
     {
@@ -108,7 +108,7 @@ public class WeaponStateMachine : MonoBehaviour
             new AnimationTransitionCondition(animatorController.Animator, WeaponAnimationType.Reload.ToString(), 1f)));
         _stateMachine = new StateMachine(showState);
         InitializeShotStateMachine(animatorController);
-        InitializeGranadeStateMachine(animatorController);
+       // InitializeGranadeStateMachine(animatorController);
     }
 
     private void StartReload()
@@ -119,7 +119,7 @@ public class WeaponStateMachine : MonoBehaviour
         }
     }
 
-    private void InitializeGranadeStateMachine(WeaponAnimationController weaponAnimationController)
+   /* private void InitializeGranadeStateMachine(WeaponAnimationController weaponAnimationController)
     {
         var idleState = new WeaponIdleGranadeState(weaponAnimationController);
         var granadeState = new WeaponGranadeState(weaponAnimationController);
@@ -131,7 +131,7 @@ public class WeaponStateMachine : MonoBehaviour
                 0.9f, 2)));
 
         _granadeMachine = new StateMachine(idleState);
-    }
+    }*/
 
     private void InitializeShotStateMachine(WeaponAnimationController weaponAnimationController)
     {

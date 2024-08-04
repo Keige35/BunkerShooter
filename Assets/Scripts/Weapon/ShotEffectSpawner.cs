@@ -5,10 +5,10 @@ public class ShotEffectSpawner : MonoBehaviour
 {
     [SerializeField] private EffectType effectType;
     [SerializeField] private Transform effectSpawnPosition;
+    [SerializeField] private bool parentObject;
 
-
-    [SerializeField] private EffectType bulletEffectType;
-    [SerializeField] private Transform bulletSpawnPosition;
+    //[SerializeField] private EffectType bulletEffectType;
+    //[SerializeField] private Transform bulletSpawnPosition;
 
     private EffectSpawner effectSpawner;
 
@@ -19,8 +19,17 @@ public class ShotEffectSpawner : MonoBehaviour
 
     private void SpawnEffect()
     {
+       
         effectSpawner ??= ServiceLocator.GetService<EffectSpawner>();
-        effectSpawner.SpawnEffect(effectSpawnPosition, effectType);
-        effectSpawner.SpawnEffect(bulletSpawnPosition, bulletEffectType);
+        
+        if (parentObject)
+        {
+            effectSpawner.SpawnEffect(effectSpawnPosition, effectType,true);
+        } 
+        else
+        {
+            effectSpawner.SpawnEffect(effectSpawnPosition, effectType);
+        }
+        // effectSpawner.SpawnEffect(bulletSpawnPosition, bulletEffectType);
     }
 }

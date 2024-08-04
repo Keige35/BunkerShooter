@@ -12,6 +12,13 @@
     HandWeaponRun,
     HandWeaponIdle,
     HandWeaponShow,
+    PistolShow,
+    PistolRun,
+    PistolIdle,
+    PistolReload,
+    PistolScope,
+    PistolShot,
+    PistolIsReload,
     
 }
 
