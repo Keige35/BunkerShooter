@@ -3,13 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Concrete
-  - Metals
-  - Gravel
-  - Grass
-  - Water
-  - Wood
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -19,11 +13,11 @@ TagManager:
   - UI
   - 
   - 
-  - Physics
-  - 
-  - Weapon
   - 
   - 
+  - 
+  - Player
+  - Enemy
   - 
   - 
   - 

@@ -607,7 +607,7 @@ Animator:
   m_GameObject: {fileID: 7586676865097650527}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9ad4bf0cf2e33e849b58f70bb70a726b, type: 2}
+  m_Controller: {fileID: 9100000, guid: a57edd8b495320b40b1009e2437fb4f1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -660,6 +660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectType: 0
   effectSpawnPosition: {fileID: 7116935073300226612}
+  parentObject: 1
 --- !u!114 &5991917216664298868
 MonoBehaviour:
   m_ObjectHideFlags: 0
