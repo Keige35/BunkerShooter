@@ -24,6 +24,7 @@ public class BulletSpawner : MonoBehaviour
     {
         bulletManager.Add(BulletType.SingleShot, new SingleShot());
         bulletManager.Add(BulletType.ShotGunShot, new ShotGunShot());
+        bulletManager.Add(BulletType.HandWeaponHit, new HandWeaponHit());
     }
 
     public void SpawnBullet(Transform startPosition, BulletType bulletType, int damage)

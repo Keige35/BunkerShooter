@@ -19,5 +19,6 @@
     PistolScope,
     PistolReload,
     IsReloadPistol,
+    IsPistolShot,
     
 }

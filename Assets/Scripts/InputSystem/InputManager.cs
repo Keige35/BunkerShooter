@@ -88,7 +88,8 @@ public class InputManager : MonoBehaviour
         IsMove = moveInput.y != 0 || moveInput.x != 0;
         IsSprint = sprintAction.ReadValue<float>() > 0;
         IsJump = jumpAction.triggered;
-        IsAttack = attackAction.IsPressed();
+       // IsAttack = attackAction.IsPressed();
+        IsAttack = attackAction.triggered;
         IsAim = aimAction.IsPressed();
         IsReloadWeapon = reloadWeaponAction.triggered;
         IsChooseWeapon1 = chooseWeapon1Action.triggered;

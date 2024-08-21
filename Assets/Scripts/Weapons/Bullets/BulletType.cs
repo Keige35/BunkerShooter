@@ -2,4 +2,5 @@
 {
     SingleShot,
     ShotGunShot,
+    HandWeaponHit
 }

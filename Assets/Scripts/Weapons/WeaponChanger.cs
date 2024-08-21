@@ -7,66 +7,55 @@ using UnityEngine;
 
 public class WeaponChanger : MonoBehaviour
 {
-    [SerializeField] List<Animator> weaponList = new List<Animator>();
-    [SerializeField] List<Transform> weaponChildernTransform = new List<Transform>();
-    [SerializeField] List<Vector3> weaponPosition = new List<Vector3>();
-    [SerializeField] List<Vector3> weaponRotation = new List<Vector3>();
-    List<List<Vector3>> weaponsPostitionsList = new List<List<Vector3>>();
-    List<List<Vector3>> weaponsRotationsList = new List<List<Vector3>>();
+    [SerializeField] private GameObject weapon0;
+    [SerializeField] private GameObject weapon1;
+    [SerializeField] private List <GameObject> weapon0DisableObject = new List<GameObject>();
+    [SerializeField] private List <GameObject> weapon1DisableObject = new List<GameObject>();
+    [SerializeField] private List<List<GameObject>> weaponsDisableObject = new List<List<GameObject>>();
 
     private void Awake()
     {
-        weaponList = this.GetComponentsInChildren<Animator>().ToList();
-        foreach (var weapon in weaponList)
-        {            
-            weaponPosition.Clear();
-            weaponChildernTransform = weapon.GetComponentsInChildren<Transform>().ToList();
-            foreach(var weaponChild in weaponChildernTransform)
-            {
-                weaponPosition.Add(weaponChild.transform.localPosition);
-               // weaponRotation.Add(weaponChild.transform.localRotation);
-            }
-            weaponsPostitionsList.Add(weaponPosition);
-           // weaponsRotationsList.Add(weaponRotation);
+        foreach (var weapon in weapon1DisableObject)
+        {
+            weapon.gameObject.SetActive(false);
         }
-        ChooseWeapon(0);
-        Debug.Log(weaponsPostitionsList.Count + "weaponsPostionList count");
+        weapon1.GetComponent<PistolStateMachine>().enabled = false;
+        weapon0.GetComponent<HandWeaponStateMachine>().enabled = true;
+        foreach (var weapon in weapon0DisableObject)
+        {
+            weapon.gameObject.SetActive(true);
+        }
     }
-
     private void Update()
     {
         if(InputManager.IsChooseWeapon1) 
         {
-            ChooseWeapon(0);
+           foreach(var weapon in weapon1DisableObject) 
+            { 
+                weapon.gameObject.SetActive(false);
+            }
+            weapon1.GetComponent<PistolStateMachine>().enabled = false;
+            weapon0.GetComponent<HandWeaponStateMachine>().enabled = true;
+            foreach(var weapon in weapon0DisableObject)
+            {
+                weapon.gameObject.SetActive(true);
+            }
         }
         if(InputManager.IsChooseWeapon2)
         {
-            ChooseWeapon(1);
+            foreach (var weapon in weapon0DisableObject)
+            {
+                weapon.gameObject.SetActive(false);
+            }
+            weapon0.GetComponent<HandWeaponStateMachine>().enabled = false;
+            weapon1.GetComponent<PistolStateMachine>().enabled = true;
+           
+            foreach (var weapon in weapon1DisableObject)
+            {
+                weapon.gameObject.SetActive(true);
+            }
         }
     }
 
-    private void ChooseWeapon(int weaponNumber)
-    {
-        foreach (var weapon in weaponList)
-        {
-            weapon.gameObject.SetActive(false);
-        }
-        if(weaponList.Count<=weaponNumber || weaponNumber < 0)
-        {
-            return;
-        }
-        else
-        {
-            weaponChildernTransform.Clear();
-            weaponList[weaponNumber].gameObject.SetActive(true);
-            weaponChildernTransform = weaponList[weaponNumber].GetComponentsInChildren<Transform>().ToList();
-            
-           for(int i=0; i < weaponChildernTransform.Count; i++)
-            {
-                //weaponChildernTransform[i].gameObject.transform.localPosition = weaponsPostitionsList[weaponNumber][i];
-                //Debug.Log(weaponChildernTransform[i].gameObject.transform.position + "weapon children trasform");
-                //Debug.Log(weaponsPostitionsList[weaponNumber][i] + "weapon position lis");
-            }      
-        }
-    }
+   
 }

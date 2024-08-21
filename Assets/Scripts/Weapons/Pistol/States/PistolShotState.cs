@@ -11,4 +11,5 @@
     {
         _weaponAnimationController.SetTrigger(WeaponAnimationType.PistolShot);
     }
+    
 }
