@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Claims;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -81,6 +80,7 @@ public class InputManager : MonoBehaviour
 
         chooseWeapon1Action = playerActions.FindActionMap("Player").FindAction("ChooseWeapon1");
         chooseWeapon2Action = playerActions.FindActionMap("Player").FindAction("ChooseWeapon2");
+
     }
 
     void Update()
@@ -88,8 +88,7 @@ public class InputManager : MonoBehaviour
         IsMove = moveInput.y != 0 || moveInput.x != 0;
         IsSprint = sprintAction.ReadValue<float>() > 0;
         IsJump = jumpAction.triggered;
-       // IsAttack = attackAction.IsPressed();
-        IsAttack = attackAction.triggered;
+        IsAttack = attackAction.IsPressed();
         IsAim = aimAction.IsPressed();
         IsReloadWeapon = reloadWeaponAction.triggered;
         IsChooseWeapon1 = chooseWeapon1Action.triggered;
