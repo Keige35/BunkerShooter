@@ -448,7 +448,7 @@ MonoBehaviour:
   - EffectType: 1
     Prefab: {fileID: 5479759682900659570, guid: c36e0b9b74ce2c343bfd279b67e39375, type: 3}
   - EffectType: 0
-    Prefab: {fileID: 1846440702415191391, guid: 49f2cb07d3e2a394598be55c118c2c3d, type: 3}
+    Prefab: {fileID: 2388750569566947518, guid: 8b5d7409f3e24e14b91a0da5d4500db2, type: 3}
 --- !u!4 &1026995065
 Transform:
   m_ObjectHideFlags: 0
@@ -808,6 +808,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6146799423487330252, guid: 82ebf2fb086e08d4c9ec0d9745180d51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7696081362613940412, guid: 82ebf2fb086e08d4c9ec0d9745180d51, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -815,6 +819,10 @@ PrefabInstance:
     - target: {fileID: 7696081362801505205, guid: 82ebf2fb086e08d4c9ec0d9745180d51, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7791891120615770240, guid: 82ebf2fb086e08d4c9ec0d9745180d51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8258029610904768149, guid: 82ebf2fb086e08d4c9ec0d9745180d51, type: 3}
       propertyPath: damage
@@ -827,7 +835,11 @@ PrefabInstance:
     - {fileID: 3180592126158874246, guid: 82ebf2fb086e08d4c9ec0d9745180d51, type: 3}
     - {fileID: 711309780878288356, guid: 82ebf2fb086e08d4c9ec0d9745180d51, type: 3}
     - {fileID: 711309780564633325, guid: 82ebf2fb086e08d4c9ec0d9745180d51, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6146799423487330252, guid: 82ebf2fb086e08d4c9ec0d9745180d51, type: 3}
+    - {fileID: 7791891120615770240, guid: 82ebf2fb086e08d4c9ec0d9745180d51, type: 3}
+    - {fileID: 6014290835681255385, guid: 82ebf2fb086e08d4c9ec0d9745180d51, type: 3}
+    - {fileID: 8982970737763535827, guid: 82ebf2fb086e08d4c9ec0d9745180d51, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5727550549175448981, guid: 82ebf2fb086e08d4c9ec0d9745180d51, type: 3}
@@ -1240,7 +1252,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.65
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
